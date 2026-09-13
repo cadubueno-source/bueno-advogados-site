@@ -3,6 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>
+(function () {
+  try {
+    if (
+      window.matchMedia("(min-width: 641px)").matches &&
+      window.matchMedia("(pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      document.documentElement.classList.add("vortex-pending");
+    }
+  } catch (e) {}
+})();
+</script>
 <title>Equipe — Bueno Advogados</title>
 <meta name="description" content="Sócios e advogados do Bueno Advogados, dedicados exclusivamente ao Direito Tributário." />
 <meta property="og:type" content="website" />

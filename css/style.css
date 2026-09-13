@@ -535,7 +535,7 @@ section {
   z-index: 0;
 }
 
-.page-hero.vortex-active::before {
+html.vortex-pending .page-hero::before {
   display: none;
 }
 

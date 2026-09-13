@@ -3,6 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>
+(function () {
+  try {
+    if (
+      window.matchMedia("(min-width: 641px)").matches &&
+      window.matchMedia("(pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      document.documentElement.classList.add("vortex-pending");
+    }
+  } catch (e) {}
+})();
+</script>
 <title>Publicações — Bueno Advogados</title>
 <meta name="description" content="Radar tributário, artigos, notícias e apresentações do Bueno Advogados." />
 <meta property="og:type" content="website" />

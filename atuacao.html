@@ -3,6 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>
+(function () {
+  try {
+    if (
+      window.matchMedia("(min-width: 641px)").matches &&
+      window.matchMedia("(pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      document.documentElement.classList.add("vortex-pending");
+    }
+  } catch (e) {}
+})();
+</script>
 <title>Atuação Tributária — Bueno Advogados</title>
 <meta name="description" content="Contencioso, consultoria, planejamento e recuperação de créditos em Direito Tributário municipal, estadual e federal." />
 <meta property="og:type" content="website" />

@@ -3,6 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>
+(function () {
+  try {
+    if (
+      window.matchMedia("(min-width: 641px)").matches &&
+      window.matchMedia("(pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      document.documentElement.classList.add("vortex-pending");
+    }
+  } catch (e) {}
+})();
+</script>
 <title>Escritório — Bueno Advogados</title>
 <meta name="description" content="Conheça o Bueno Advogados: escritório especializado em Direito Tributário municipal, estadual e federal, sediado em Luziânia (GO)." />
 <meta property="og:type" content="website" />
