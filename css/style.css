@@ -375,7 +375,7 @@ section {
   transform: rotate(180deg);
 }
 
-@media (max-width: 899px) {
+@media (max-width: 1060px) {
   .nav-toggle {
     display: inline-flex;
   }
@@ -1453,6 +1453,137 @@ html.vortex-pending .page-hero::before {
 .skip-link:focus {
   left: var(--space-2);
   top: var(--space-2);
+}
+
+/* ============================================================
+   Calculadora DIFAL — relatório de simulação
+   ============================================================ */
+.difal-report {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: var(--space-3);
+}
+
+.difal-report-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--navy-900);
+}
+
+.difal-report-head strong {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  color: var(--navy-900);
+}
+
+.difal-report-head span {
+  color: var(--gold-700);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.difal-report-meta div,
+.difal-report .grid-2 > div {
+  font-size: 0.92rem;
+  color: var(--ink-900);
+}
+
+.difal-total {
+  margin-top: var(--space-3);
+  background: var(--navy-950);
+  color: #fff;
+  border-radius: var(--radius-s);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.difal-total span {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+}
+
+.difal-total strong {
+  font-family: var(--font-head);
+  font-size: 2rem;
+  color: var(--gold-500);
+}
+
+.difal-detalhe {
+  margin-top: var(--space-3);
+}
+
+.difal-detalhe summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--navy-800);
+  padding: 0.5rem 0;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.difal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: var(--space-2);
+}
+
+.difal-table th,
+.difal-table td {
+  text-align: left;
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.difal-table th {
+  color: var(--navy-800);
+  font-weight: 700;
+  background: var(--paper-50);
+}
+
+.difal-disclaimer {
+  margin-top: var(--space-3);
+  font-size: 0.8rem;
+  color: var(--ink-500);
+}
+
+@media print {
+  .site-header,
+  .nav-backdrop,
+  .newsletter-bar,
+  .site-footer,
+  .cookie-banner,
+  .page-hero,
+  .form-panel,
+  #difal-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  #difal-resultado {
+    padding: 0;
+  }
+
+  .difal-report {
+    border: none;
+    padding: 0;
+  }
 }
 
 /* ============================================================

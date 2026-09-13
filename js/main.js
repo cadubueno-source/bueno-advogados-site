@@ -51,7 +51,7 @@
     if (!trigger) return;
     trigger.setAttribute("aria-expanded", "false");
     trigger.addEventListener("click", function (e) {
-      var isMobile = window.matchMedia("(max-width: 899px)").matches;
+      var isMobile = window.matchMedia("(max-width: 1060px)").matches;
       if (!isMobile) return;
       e.preventDefault();
       var willOpen = !parent.classList.contains("is-open");
