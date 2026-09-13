@@ -6,11 +6,7 @@
 <script>
 (function () {
   try {
-    if (
-      window.matchMedia("(min-width: 641px)").matches &&
-      window.matchMedia("(pointer: fine)").matches &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       document.documentElement.classList.add("vortex-pending");
     }
   } catch (e) {}
