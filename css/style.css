@@ -460,11 +460,11 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../assets/skyline.svg");
+  background-image: url("../assets/hero-bg.jpg");
   background-repeat: no-repeat;
-  background-position: bottom right;
-  background-size: 900px auto;
-  opacity: 0.35;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.55;
   mix-blend-mode: screen;
 }
 
@@ -1545,8 +1545,7 @@ html.vortex-pending .page-hero::before {
 
   /* A ilustração de fundo decorativa reduz presença: prioridade ao texto */
   .page-hero::before {
-    background-size: 480px auto;
-    opacity: 0.22;
+    opacity: 0.4;
   }
 
   /* Grade de valores/esferas vira lista única, mais fácil de ler rolando */
