@@ -1,0 +1,2 @@
+# A proteção de /acesso-interno agora é feita por uma Netlify Function
+# (ver netlify/functions/acesso-interno.js), pois Basic-Auth aqui exige plano Pro.
