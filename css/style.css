@@ -1560,6 +1560,118 @@ html.vortex-pending .page-hero::before {
   color: var(--ink-500);
 }
 
+.informativo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: var(--space-2);
+}
+
+.informativo-table th,
+.informativo-table td {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.informativo-table th {
+  color: var(--navy-800);
+  font-weight: 700;
+  background: var(--paper-50);
+  white-space: nowrap;
+}
+
+.informativo-table td {
+  min-width: 180px;
+}
+
+/* ============================================================
+   Informativos — blocos reutilizados pelas páginas de artigo
+   (quadro de estatísticas, cards de frente, callouts, passos)
+   ============================================================ */
+.hl-gold {
+  color: var(--gold-700);
+  font-weight: 700;
+}
+
+.informativo-stats {
+  background: var(--navy-950);
+  color: #fff;
+  border-radius: var(--radius-m);
+  padding: var(--space-4) var(--space-3);
+}
+
+.informativo-stats .grid-3 > div {
+  border-left: 2px solid var(--gold-500);
+  padding-left: var(--space-2);
+}
+
+.informativo-stats .stat-num {
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 2.3rem;
+  line-height: 1;
+  color: var(--gold-500);
+  margin-bottom: 0.4rem;
+}
+
+.informativo-stats p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.informativo-stats > .container > p,
+.informativo-stats-note {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.92rem;
+  margin-top: var(--space-3);
+  margin-bottom: 0;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: var(--space-3);
+}
+
+.feature-card h3 {
+  font-size: 1.05rem;
+  color: var(--navy-800);
+  margin-bottom: 0.35rem;
+}
+
+.feature-card p {
+  color: var(--ink-700);
+  font-size: 0.94rem;
+  margin: 0;
+}
+
+.feature-card .step-num {
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--gold-500);
+  margin-bottom: 0.3rem;
+}
+
+.callout-navy {
+  background: var(--navy-900);
+  color: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius-m);
+  padding: var(--space-3);
+  font-size: 0.95rem;
+  margin-top: var(--space-3);
+}
+
+.callout-navy strong {
+  color: var(--gold-500);
+}
+
 @media print {
   .site-header,
   .nav-backdrop,
