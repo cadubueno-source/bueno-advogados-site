@@ -32,6 +32,7 @@
     nav.classList.remove("is-open");
     if (backdrop) backdrop.classList.remove("is-open");
     if (toggle) toggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
   }
 
   function toggleNav() {
@@ -39,20 +40,30 @@
     var isOpen = nav.classList.toggle("is-open");
     if (backdrop) backdrop.classList.toggle("is-open", isOpen);
     if (toggle) toggle.setAttribute("aria-expanded", String(isOpen));
+    document.body.classList.toggle("nav-open", isOpen);
   }
 
   if (toggle) toggle.addEventListener("click", toggleNav);
   if (backdrop) backdrop.addEventListener("click", closeNav);
 
-  /* ---------- Dropdowns (clique para touch, hover cuida do desktop via CSS) ---------- */
+  /* Fecha o menu em tela cheia ao clicar num link de navegação direto (sem submenu) */
+  if (nav) {
+    nav.querySelectorAll("a.nav-link").forEach(function (link) {
+      link.addEventListener("click", function () {
+        if (!link.parentElement || !link.parentElement.classList.contains("has-dropdown")) {
+          closeNav();
+        }
+      });
+    });
+  }
+
+  /* ---------- Dropdowns (o menu agora é sempre em tela cheia, então o clique sempre abre/fecha o submenu) ---------- */
   var dropdownParents = document.querySelectorAll(".has-dropdown");
   dropdownParents.forEach(function (parent) {
     var trigger = parent.querySelector(".nav-link");
     if (!trigger) return;
     trigger.setAttribute("aria-expanded", "false");
     trigger.addEventListener("click", function (e) {
-      var isMobile = window.matchMedia("(max-width: 1060px)").matches;
-      if (!isMobile) return;
       e.preventDefault();
       var willOpen = !parent.classList.contains("is-open");
       dropdownParents.forEach(function (p) {
