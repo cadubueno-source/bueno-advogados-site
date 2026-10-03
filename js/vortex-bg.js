@@ -131,12 +131,16 @@
     var animationId = null;
     var isVisible = true;
     var lostContext = false;
+    var cssWidth = 1;
+    var cssHeight = 1;
 
     function resizeCanvas() {
       var rect = heroSection.getBoundingClientRect();
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = Math.max(1, rect.width * dpr);
-      canvas.height = Math.max(1, rect.height * dpr);
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      cssWidth = Math.max(1, rect.width);
+      cssHeight = Math.max(1, rect.height);
+      canvas.width = Math.max(1, cssWidth * dpr);
+      canvas.height = Math.max(1, cssHeight * dpr);
       gl.viewport(0, 0, canvas.width, canvas.height);
       gl.uniform1f(uRatio, canvas.width / canvas.height);
     }
@@ -149,7 +153,7 @@
 
         gl.clear(gl.COLOR_BUFFER_BIT);
         gl.uniform1f(uTime, time);
-        gl.uniform2f(uPointerPosition, pointer.x / canvas.clientWidth, 1 - pointer.y / canvas.clientHeight);
+        gl.uniform2f(uPointerPosition, pointer.x / cssWidth, 1 - pointer.y / cssHeight);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         animationId = requestAnimationFrame(render);
       } catch (renderError) {
@@ -185,7 +189,7 @@
     if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          isVisible = entry.isIntersecting;
+          isVisible = entry.isIntersecting && !document.hidden;
           if (isVisible && !animationId && !lostContext) {
             animationId = requestAnimationFrame(render);
           }
@@ -193,6 +197,19 @@
       });
       io.observe(heroSection);
     }
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        isVisible = false;
+      } else {
+        var rect = heroSection.getBoundingClientRect();
+        var inView = rect.bottom > 0 && rect.top < window.innerHeight;
+        isVisible = inView;
+        if (isVisible && !animationId && !lostContext) {
+          animationId = requestAnimationFrame(render);
+        }
+      }
+    });
 
     animationId = requestAnimationFrame(render);
   } catch (setupError) {
