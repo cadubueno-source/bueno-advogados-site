@@ -458,6 +458,40 @@ section {
   }
 }
 
+
+/* Botão "Seja nosso parceiro" no menu */
+.nav-cta-row {
+  width: 100%;
+  max-width: var(--container);
+  margin: var(--space-3) auto 0;
+  padding-top: var(--space-3);
+  border-top: 1px solid rgba(198, 154, 78, 0.28);
+}
+.main-nav a.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0.8rem 1.6rem;
+  border: 1.5px solid var(--gold-500);
+  border-radius: var(--radius-s);
+  color: var(--gold-500);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  letter-spacing: 0.01em;
+  transition: background 160ms ease, color 160ms ease;
+}
+.main-nav a.nav-cta:hover,
+.main-nav a.nav-cta:focus-visible,
+.main-nav a.nav-cta.is-current {
+  background: var(--gold-500);
+  color: var(--navy-950);
+}
+@media (max-width: 640px) {
+  .main-nav a.nav-cta { width: 100%; justify-content: center; }
+}
+
 /* ============================================================
    Page hero (banner escuro com skyline)
    ============================================================ */
